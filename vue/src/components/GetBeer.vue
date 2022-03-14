@@ -41,6 +41,7 @@ class GetBeer extends Vue {
   beers = []
   isLoading = false
   getBeer() {
+    // eslint-disable-next-line
     console.log('get beer clicked')
   }
 }

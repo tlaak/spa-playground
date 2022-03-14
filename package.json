@@ -1,0 +1,15 @@
+{
+  "name": "spa-playground",
+  "version": "1.0.0",
+  "description": "Single Page App playground for trying out things",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlaak/spa-playground.git"
+  },
+  "author": "Timo Laak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tlaak/spa-playground/issues"
+  },
+  "homepage": "https://github.com/tlaak/spa-playground#readme"
+}
