@@ -1,0 +1,39 @@
+.get-beer {
+}
+
+.get-beer__button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--color__background--button);
+  border: none;
+  color: var(--color__text--button);
+  padding: 0.75rem 2rem;
+
+  &:hover {
+    background-color: var(--color__background--button-hover);
+    box-shadow: 0 0 5px hsl(0, 0%, 50%);
+  }
+}
+
+.get-beer__spinner {
+}
+
+.get-beer__beers {
+}
+
+.get-beer__beers-list {
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+
+.get-beer__beers-list-item {
+  margin-bottom: 0.5rem;
+}
+
+.get-beer__beers-list-item--beer-name {
+  font-weight: bold;
+}
+
+.get-beer__beers-list-item--beer-tagline {
+  font-style: italic;
+}
