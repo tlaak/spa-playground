@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'app/../environments/environment';
+import { environment } from '../../environments/environment';
+import type { Beer } from '../../types/beer';
 
 @Injectable()
 export class BeerService {
@@ -8,6 +9,6 @@ export class BeerService {
 
   getBeer() {
     const beerApiEndpoint = `${environment.apiEndpoint}/beers`;
-    return this.http.get(beerApiEndpoint);
+    return this.http.get<Beer[]>(beerApiEndpoint);
   }
 }

@@ -1,21 +1,20 @@
-export const GOT_BEER = 'GOT_BEER';
-export const GET_BEER = 'GET_BEER';
+import { createAction, createReducer, on, props } from '@ngrx/store';
+import type { Beer, BeerState } from '../../types/beer';
+
+export const  getBeer = createAction('GET_BEER');
+export const gotBeer = createAction('GOT_BEER', props<{ beers: Beer[] }>());
 
 const beerState: BeerState = {
   isLoading: false,
   beers: [],
 };
 
-export function beerReducer(
-  state: BeerState = beerState,
-  action: ActionWithPayload<Beer[]>
-) {
-  switch (action.type) {
-    case GET_BEER:
-      return { ...state, isLoading: true };
-    case GOT_BEER:
-      return { ...state, isLoading: false, beers: action.payload };
-    default:
-      return state;
-  }
-}
+export const beerReducer = createReducer(
+  beerState,
+  on(getBeer, (state) => ({ ...state, isLoading: true })),
+  on(gotBeer, (state, { beers }) => ({
+    ...state,
+    isLoading: false,
+    beers,
+  }))
+);

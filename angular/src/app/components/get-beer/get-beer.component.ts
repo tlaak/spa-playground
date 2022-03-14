@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { GET_BEER } from 'app/reducers/beer.reducer';
+import type { Beer, BeerState } from '../../../types/beer';
+import { getBeer } from '../../../app/reducers/beer.reducer';
 
 @Component({
   selector: 'app-get-beer',
@@ -9,10 +10,10 @@ import { GET_BEER } from 'app/reducers/beer.reducer';
   styleUrls: ['./get-beer.component.css'],
 })
 export class GetBeerComponent implements OnInit, OnDestroy {
-  private beerSub: Subscription;
+  private beerSub: Subscription | undefined = undefined;
 
-  public beers: Beer[];
-  public isLoading: boolean;
+  public beers: Beer[] = [];
+  public isLoading: boolean = false;
 
   constructor(private store: Store<any>) {}
 
@@ -26,11 +27,11 @@ export class GetBeerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.beerSub.unsubscribe();
+    this.beerSub?.unsubscribe();
   }
 
   getBeer(event: Event) {
     event.preventDefault();
-    this.store.dispatch({ type: GET_BEER });
+    this.store.dispatch(getBeer());
   }
 }
