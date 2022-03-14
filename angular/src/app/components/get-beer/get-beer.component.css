@@ -8,11 +8,11 @@
   border: none;
   color: var(--color__text--button);
   padding: 0.75rem 2rem;
+}
 
-  &:hover {
-    background-color: var(--color__background--button-hover);
-    box-shadow: 0 0 5px hsl(0, 0%, 50%);
-  }
+.get-beer__button:hover {
+  background-color: var(--color__background--button-hover);
+  box-shadow: 0 0 5px hsl(0, 0%, 50%);
 }
 
 .get-beer__spinner {
