@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --configuration production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -30,10 +30,10 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^10.0.1",
+    "@angular-builders/custom-webpack": "^13.1.0",
     "@angular-builders/dev-server": "^7.3.1",
-    "@angular-devkit/architect": "^0.1200.0",
-    "@angular-devkit/build-angular": "^12.0.0",
+    "@angular-devkit/architect": "^0.1302.6",
+    "@angular-devkit/build-angular": "^13.2.6",
     "@angular/cli": "13.2.6",
     "@angular/compiler-cli": "^13.2.6",
     "@angular/language-service": "^13.2.6",
