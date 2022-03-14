@@ -32,6 +32,7 @@ specifiers:
   jasmine-spec-reporter: ~7.0.0
   karma: ~6.3.17
   karma-chrome-launcher: ~3.1.0
+  karma-coverage: ^2.2.0
   karma-coverage-istanbul-reporter: ~3.0.3
   karma-jasmine: ~4.0.1
   karma-jasmine-html-reporter: ^1.7.0
@@ -80,6 +81,7 @@ devDependencies:
   jasmine-spec-reporter: 7.0.0
   karma: 6.3.17
   karma-chrome-launcher: 3.1.1
+  karma-coverage: 2.2.0
   karma-coverage-istanbul-reporter: 3.0.3
   karma-jasmine: 4.0.1_karma@6.3.17
   karma-jasmine-html-reporter: 1.7.0_d63185f8de84f984ad7c6427ff04984c
@@ -4877,6 +4879,17 @@ packages:
       - supports-color
     dev: true
 
+  /istanbul-lib-source-maps/4.0.1:
+    resolution: {integrity: sha512-n3s8EwkdFIJCG3BPKBYvskgXGoy88ARzvegkitk60NxRdwltLOTaH7CUiMRXvwYorl0Q712iEjcWB+fK/MrWVw==}
+    engines: {node: '>=10'}
+    dependencies:
+      debug: 4.3.3
+      istanbul-lib-coverage: 3.2.0
+      source-map: 0.6.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /istanbul-reports/3.1.4:
     resolution: {integrity: sha512-r1/DshN4KSE7xWEknZLLLLDn5CJybV3nw01VTkp6D5jzLuELlcbudfj/eSQFvrKsJuTVCGnePO7ho82Nw9zzfw==}
     engines: {node: '>=8'}
@@ -5040,6 +5053,20 @@ packages:
       istanbul-lib-coverage: 3.2.0
       istanbul-lib-report: 3.0.0
       istanbul-lib-source-maps: 3.0.6
+      istanbul-reports: 3.1.4
+      minimatch: 3.1.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /karma-coverage/2.2.0:
+    resolution: {integrity: sha512-gPVdoZBNDZ08UCzdMHHhEImKrw1+PAOQOIiffv1YsvxFhBjqvo/SVXNk4tqn1SYqX0BJZT6S/59zgxiBe+9OuA==}
+    engines: {node: '>=10.0.0'}
+    dependencies:
+      istanbul-lib-coverage: 3.2.0
+      istanbul-lib-instrument: 5.1.0
+      istanbul-lib-report: 3.0.0
+      istanbul-lib-source-maps: 4.0.1
       istanbul-reports: 3.1.4
       minimatch: 3.1.2
     transitivePeerDependencies:
