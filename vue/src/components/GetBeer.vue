@@ -1,55 +1,49 @@
-<!--
-  This is a simple example atom component that doesn't really do much.
-  It has some styles and some code logic to verify that it's getting all
-  the props it needs. It doesn't connect to any stores, it doesn't perform
-  any api calls and it doesn't even have any event handlers attached to it.
+<script setup lang="ts">
+import { ref } from 'vue'
+import { getBeer } from '@/services/beerService'
+import type { Beer } from '@/types/beer'
+import BeerItem from './BeerItem.vue'
 
-  It is perfectly reusable anywhere in the application without modifications.
+const beers = ref<Beer[]>([])
+const isLoading = ref(false)
 
-  Components like this could be even added in a UI library that can be installed
-  and reused in other Bud applications.
--->
+const fetchBeer = async () => {
+  isLoading.value = true
+  beers.value = await getBeer()
+  isLoading.value = false
+}
+</script>
+
 <template>
   <div class="get-beer">
-    <button type="button" class="get-beer__button" @click="getBeer">
+    <button type="button" class="get-beer__button" @click="fetchBeer">
       Show me the beers!
     </button>
     <div v-if="isLoading" class="get-beer__spinner">
       <p>Fetching beer... be patient!</p>
     </div>
     <div v-if="beers" class="get-beer__beers">
-      <!-- <ol class="get-beer__beers-list">
-        <li v-for="beer of beers" class="get-beer__beers-list-item">
-          <div class="get-beer__beers-list-item--beer-name">
-            {{ beer.name }}
-          </div>
-          <div class="get-beer__beers-list-item--beer-tagline">
-            {{ beer.tagline }}
-          </div>
+      <ol class="get-beer__beers-list">
+        <li
+          v-for="beer of beers"
+          :key="beer.id"
+          class="get-beer__beers-list-item"
+        >
+          <BeerItem>
+            <template #beer>
+              {{ beer.name }}
+            </template>
+            <template #tagline>
+              {{ beer.tagline }}
+            </template>
+          </BeerItem>
         </li>
-      </ol>-->
+      </ol>
     </div>
   </div>
 </template>
 
-<script>
-import Vue from 'vue'
-import Component from 'vue-class-component'
-
-@Component
-class GetBeer extends Vue {
-  beers = []
-  isLoading = false
-  getBeer() {
-    // eslint-disable-next-line
-    console.log('get beer clicked')
-  }
-}
-
-export default GetBeer
-</script>
-
-<style lang="css" scoped>
+<style scoped>
 .get-beer {
 }
 
@@ -60,11 +54,11 @@ export default GetBeer
   border: none;
   color: var(--color__text--button);
   padding: 0.75rem 2rem;
+}
 
-  &:hover {
-    background-color: var(--color__background--button-hover);
-    box-shadow: 0 0 5px hsl(0, 0%, 50%);
-  }
+.get-beer__button:hover {
+  background-color: var(--color__background--button-hover);
+  box-shadow: 0 0 5px hsl(0, 0%, 50%);
 }
 
 .get-beer__spinner {
@@ -80,13 +74,5 @@ export default GetBeer
 
 .get-beer__beers-list-item {
   margin-bottom: 0.5rem;
-}
-
-.get-beer__beers-list-item--beer-name {
-  font-weight: bold;
-}
-
-.get-beer__beers-list-item--beer-tagline {
-  font-style: italic;
 }
 </style>
