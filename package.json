@@ -11,5 +11,8 @@
   "bugs": {
     "url": "https://github.com/tlaak/spa-playground/issues"
   },
-  "homepage": "https://github.com/tlaak/spa-playground#readme"
+  "homepage": "https://github.com/tlaak/spa-playground#readme",
+  "engines": {
+    "node": "16.14.0"
+  }
 }
