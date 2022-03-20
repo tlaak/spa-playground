@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { GetBeer } from 'components/GetBeer'
+import { Home } from './screens/Home'
 import './App.css'
 
 const queryClient = new QueryClient()
@@ -8,8 +8,7 @@ const queryClient = new QueryClient()
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <main className="app">
-      <h1 className="app__heading">Welcome to the Get Beer app!</h1>
-      <GetBeer />
+      <Home />
     </main>
   </QueryClientProvider>
 )
