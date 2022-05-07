@@ -13,6 +13,7 @@
   },
   "homepage": "https://github.com/tlaak/spa-playground#readme",
   "engines": {
-    "node": "16.14.0"
+    "node": "16.14.0",
+    "pnpm": "^7.0.0"
   }
 }
